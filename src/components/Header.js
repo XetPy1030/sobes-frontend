@@ -8,10 +8,8 @@ const Header = () => {
     const routerStore = useRouterStore();
 
     const handleSignOut = async () => {
-        const response = await serverApi.signOut();
-        if (response.data?.status === "success") {
-            appStore.setToken(null);
-        }
+        await serverApi.signOut();
+        appStore.setToken(null);
     };
 
     return (
