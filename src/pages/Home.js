@@ -28,6 +28,23 @@ const Home = () => {
         getTodos();
     }, [currentPage, currentSort]);
 
+    const toFirstPage = () => {
+        setCurrentPage(1);
+    }
+    const toPrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+    const toNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+    const toLastPage = () => {
+        setCurrentPage(totalPages);
+    }
+
 
     return (<div className={"todoHome"}>
         <h1>Home</h1>
@@ -50,23 +67,11 @@ const Home = () => {
             return <ToDo key={item.id} {...item} />
         })}
         {totalPages > 1 && <Pagination>
-            <Pagination.First onClick={() => {
-                paginate(1);
-            }}/>
-            <Pagination.Prev onClick={() => {
-                if (currentPage > 1) {
-                    paginate(currentPage - 1);
-                }
-            }}/>
+            <Pagination.First onClick={toFirstPage}/>
+            <Pagination.Prev onClick={toPrevPage}/>
             <Pagination.Item>{currentPage}/{totalPages}</Pagination.Item>
-            <Pagination.Next onClick={() => {
-                if (currentPage < totalPages) {
-                    paginate(currentPage + 1);
-                }
-            }}/>
-            <Pagination.Last onClick={() => {
-                paginate(totalPages);
-            }}/>
+            <Pagination.Next onClick={toNextPage}/>
+            <Pagination.Last onClick={toLastPage}/>
         </Pagination>}
 
     </div>);
