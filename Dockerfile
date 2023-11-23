@@ -1,4 +1,4 @@
-FROM node:21
+FROM node:16
 
 COPY . /app
 
@@ -8,4 +8,4 @@ RUN yarn install
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
