@@ -1,9 +1,8 @@
 import {SERVER_URL} from "../consts";
 
 class Url {
-    constructor({route, serverUrl, queries, searchSettings}) {
+    constructor({route, serverUrl, queries}) {
         this.route = route;
-        this.searchSettings = searchSettings;
         this.queries = queries;
         this.serverUrl = serverUrl || SERVER_URL;
     }
@@ -31,14 +30,6 @@ class Url {
 
     get defaultUrl() {
         return this.serverUrl + this.route;
-    }
-
-    #setQueries(queries) {
-        this.queries = queries;
-    }
-
-    #setRoute(route) {
-        this.route = route;
     }
 }
 

@@ -10,7 +10,7 @@ class BaseApi {
         };
     }
 
-    async sendRequest({method, params = {}, data, url, isAuth = false}) {
+    async sendRequest({method, params = {}, data, url}) {
         if (url instanceof Url) {
             url = url.defaultUrl;
         }

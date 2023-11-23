@@ -8,7 +8,7 @@ import serverApi from "../api/serverApi";
 import {useEffect, useState} from "react";
 import appStore from "../store/AppStore";
 
-const ModalEditTodo = ({id, username, email, text, is_completed, is_edited, isShow, setIsShow}) => {
+const ModalEditTodo = ({id, username, email, text, is_completed, isShow, setIsShow}) => {
     const [error, setError] = useState(null);
     const [textTodo, setTextTodo] = useState(text);
 

@@ -29,7 +29,6 @@ export const routes = [
 export function initRouter() {
     const routerStore = new RouterStore(routes, notFound);
 
-    // Observe history changes
     const historyAdapter = new HistoryAdapter(routerStore, browserHistory);
     historyAdapter.observeRouterStateChanges();
 
