@@ -22,8 +22,6 @@ const Home = () => {
         }
     };
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
     useEffect(() => {
         getTodos();
     }, [currentPage, currentSort]);
