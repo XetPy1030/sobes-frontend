@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {initRouter} from "./initRouter";
+import {RouterView, RouterContext} from "mobx-state-router";
+import {viewMap} from "./viewMap";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {observer} from "mobx-react";
+import Modal from "./components/Modal";
+import Header from "./components/Header";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const routerStore = initRouter();
+
+    return (
+        <div className="App">
+            <RouterContext.Provider value={routerStore}>
+                <Modal/>
+                <Header/>
+                <RouterView viewMap={viewMap}/>
+            </RouterContext.Provider>
+        </div>
+    );
 }
 
-export default App;
+export default observer(App);
